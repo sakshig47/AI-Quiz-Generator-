@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Quiz Generator</title> 
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1> AI Quiz Generator</h1>
+            <p>Transform any text or document into engaging quizzes with three difficulty levels</p>
+        </div>
+
+        <!-- Upload Section -->
+        <div class="upload-section" id="uploadSection">
+            <h2 style="margin-bottom: 20px; color: #333;">📄 Upload Content</h2>
+            
+            <div class="upload-zone" id="uploadZone">
+                <div class="upload-icon">📁</div>
+                <h3>Drop files here or click to browse</h3>
+                <p>Supports PDF, DOC, DOCX, and TXT files</p>
+                <input type="file" class="file-input" id="fileInput" accept=".pdf,.doc,.docx,.txt" multiple>
+            </div>
+            
+            <div style="margin: 30px 0; text-align: center; color: #666;">
+                <strong>OR</strong>
+            </div>
+            
+            <textarea class="text-input" id="textInput" placeholder="Paste your text content here..."></textarea>
+            
+            <div style="text-align: center; margin-top: 30px;">
+                <button class="btn" onclick="processContent()">Generate Quiz 🚀</button>
+            </div>
+        </div>
+
+        <!-- Difficulty Selector -->
+        <div class="difficulty-selector" id="difficultySection">
+            <h2 style="margin-bottom: 20px; color: #333;">🎯 Choose Difficulty Level</h2>
+            <div class="difficulty-options">
+                <div class="difficulty-card simple" onclick="selectDifficulty('simple')">
+                    <h3>🟢 Simple</h3>
+                    <p>Basic comprehension questions, multiple choice, direct facts from the content.</p>
+                </div>
+                <div class="difficulty-card moderate" onclick="selectDifficulty('moderate')">
+                    <h3>🟡 Moderate</h3>
+                    <p>Analysis questions, true/false, concept understanding and connections.</p>
+                </div>
+                <div class="difficulty-card hard" onclick="selectDifficulty('hard')">
+                    <h3>🔴 Hard</h3>
+                    <p>Critical thinking, complex scenarios, advanced problem-solving questions.</p>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 30px;">
+                <button class="btn" id="startQuizBtn" onclick="startQuiz()" disabled>Start Quiz 📝</button>
+            </div>
+        </div>
+
+        <!-- Loading Section -->
+        <div class="loading" id="loadingSection">
+            <div class="spinner"></div>
+            <h3>Generating your quiz...</h3>
+            <p>Please wait while we analyze your content and create questions.</p>
+        </div>
+
+        <!-- Quiz Section -->
+        <div class="quiz-section" id="quizSection">
+            <div style="display: flex; justify-content: between; align-items: center; margin-bottom: 30px;">
+                <h2 id="quizTitle">📝 Quiz Time!</h2>
+                <div style="margin-left: auto;">
+                    <span id="questionCounter">Question 1 of 10</span>
+                </div>
+            </div>
+            
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill" style="width: 10%"></div>
+            </div>
+            
+            <div id="questionContainer">
+                <!-- Questions will be inserted here -->
+            </div>
+            
+            <div style="text-align: center; margin-top: 30px;">
+                <button class="btn" id="nextBtn" onclick="nextQuestion()">Next Question ➡️</button>
+                <button class="btn hidden" id="submitBtn" onclick="submitQuiz()">Submit Quiz ✅</button>
+            </div>
+        </div>
+
+        <!-- Results Section -->
+        <div class="results-section" id="resultsSection">
+            <h2> Quiz Results</h2>
+            <div class="score-circle" id="scoreCircle">85%</div>
+            <div id="performanceText">
+                <h3 id="performanceTitle">Great Job!</h3>
+                <p id="performanceDescription">You scored 8.5 out of 10 questions correctly.</p>
+            </div>
+            <div id="detailedResults" style="margin-top: 30px;">
+                <!-- Detailed results will be inserted here -->
+            </div>
+            <div style="margin-top: 30px;">
+                <button class="btn" onclick="restartApp()">Take Another Quiz 🔄</button>
+                <button class="btn" onclick="reviewAnswers()">Review Answers 📖</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
