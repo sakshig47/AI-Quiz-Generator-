@@ -261,16 +261,16 @@ let currentContent = '';
             // Update performance text
             let title, description;
             if (percentage >= 90) {
-                title = "Excellent! 🏆";
+                title = "Excellent! ";
                 description = `Outstanding performance! You scored ${score} out of ${quizData.length} questions correctly.`;
             } else if (percentage >= 80) {
-                title = "Great Job! 🌟";
+                title = "Great Job! ";
                 description = `Well done! You scored ${score} out of ${quizData.length} questions correctly.`;
             } else if (percentage >= 60) {
-                title = "Good Effort! 👍";
+                title = "Good Effort! ";
                 description = `Nice work! You scored ${score} out of ${quizData.length} questions correctly.`;
             } else {
-                title = "Keep Practicing! 💪";
+                title = "Keep Practicing! ";
                 description = `You scored ${score} out of ${quizData.length} questions correctly. Review the material and try again!`;
             }
 
